@@ -4,8 +4,8 @@ import 'package:provider/provider.dart';
 import 'view/screens/home_screen.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider<NewsListModel>(
-    create: (context) => NewsListModel(),
+  runApp(ChangeNotifierProvider<NewsListViewModel>(
+    create: (context) => NewsListViewModel(),
     child: MyApp(),
   ));
 }
