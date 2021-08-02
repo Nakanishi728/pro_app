@@ -11,7 +11,7 @@ import 'package:flutter_provider_app/viewmodels/news_list_model.dart';
 class NewsListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final viewModel = Provider.of<NewsListModel>(context, listen: false);
+    final viewModel = Provider.of<NewsListViewModel>(context, listen: false);
 
     if (!viewModel.isLoading) {
       Future(
@@ -54,7 +54,7 @@ class NewsListPage extends StatelessWidget {
 
   // 更新処理
   Future<void> onRefresh(BuildContext context) async {
-    final viewModel = Provider.of<NewsListModel>(context, listen: false);
+    final viewModel = Provider.of<NewsListViewModel>(context, listen: false);
     await viewModel.getNews(
       searchType: viewModel.searchType,
       keyword: viewModel.keyword,
@@ -64,7 +64,7 @@ class NewsListPage extends StatelessWidget {
 
   // キーワード記事取得処理
   Future<void> getKeywordNews(BuildContext context, keyword) async {
-    final viewModel = Provider.of<NewsListModel>(context, listen: false);
+    final viewModel = Provider.of<NewsListViewModel>(context, listen: false);
     await viewModel.getNews(
       searchType: SearchType.KEYWORD,
       keyword: keyword,
@@ -74,7 +74,7 @@ class NewsListPage extends StatelessWidget {
 
   // カテゴリー記事選択処理
   Future<void> getCategoryNews(BuildContext context, category) async {
-    final viewModel = Provider.of<NewsListModel>(context, listen: false);
+    final viewModel = Provider.of<NewsListViewModel>(context, listen: false);
     await viewModel.getNews(
       searchType: SearchType.CATEGORY,
       category: category,

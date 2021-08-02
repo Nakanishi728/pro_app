@@ -4,7 +4,7 @@ import 'package:flutter_provider_app/data/search_type.dart';
 import 'package:flutter_provider_app/repository/news_repository.dart';
 
 // ChangeNotifierを継承させたプロパティの設定
-class NewsListModel extends ChangeNotifier {
+class NewsListViewModel extends ChangeNotifier {
   final NewsRepository _repository = NewsRepository();
 
   SearchType _searchType = SearchType.CATEGORY;
@@ -25,7 +25,9 @@ class NewsListModel extends ChangeNotifier {
   bool get isLoading => _isLoading;
 
   Future<void> getNews(
-      {@required SearchType searchType, String keyword, Category category}) async {
+      {@required SearchType searchType,
+      String keyword,
+      Category category}) async {
     _searchType = searchType;
     _keyword = keyword;
     _category = category;
